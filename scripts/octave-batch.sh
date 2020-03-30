@@ -52,4 +52,4 @@ echo "Using Octave directory: $SCRIPT_DIR"
 cd "$SCRIPT_DIR"
 
 # run the function/script file
-exec octave "$SCRIPT"
+exec octave -W "$SCRIPT"
