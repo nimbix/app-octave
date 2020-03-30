@@ -5,7 +5,7 @@ LABEL maintainer="Nimbix, Inc." \
 RUN yum -y install epel-release && \
     yum -y install dnf-plugins-core && \
     yum config-manager --set-enabled PowerTools && \
-    dnf -y install texinfo libqhull && \
+    dnf -y install texinfo libqhull passwd && \
     yum -y install octave && \
     yum clean all
 
