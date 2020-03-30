@@ -17,47 +17,22 @@
     "Shell": {
       "path": "/usr/local/scripts/octave-shell.sh",
       "interactive": true,
-      "name": "Cluster",
+      "name": "Octave shell",
       "description": "Launch an interactive session",
       "parameters": {
-        "desktop": {
-          "name": "desktop",
-          "description": "Start the desktop environment",
-          "type": "BOOL",
-          "value": true,
-          "positional": false,
-          "required": true
-        }
       }
     },
     "Batch": {
-      "path": "/bin/bash",
+      "path": "/usr/local/scripts/octave-batch.sh",
       "interactive": false,
       "name": "Batch",
-      "description": "Run a batch command using /bin/bash.  The output may be monitored directly in your web browser.",
+      "description": "Run Octave as a batch job, supplying a Function or Script File",
       "parameters": {
-        "-l": {
-          "name": "-l",
-          "description": "-l",
-          "type": "CONST",
-          "value": "-l",
-          "positional": true,
-          "required": true
-        },
-        "-c": {
-          "name": "-c",
-          "description": "-c",
-          "type": "CONST",
-          "value": "-c",
-          "positional": true,
-          "required": true
-        },
-        "command": {
-          "name": "Command",
-          "description": "Command to run",
-          "type": "STR",
-          "positional": true,
-          "required": true
+        "-script": {
+          "required": true,
+          "type": "FILE",
+          "filter": "*.m",
+          "name": "Octave Function or Script file (*.m)"
         }
       }
     }

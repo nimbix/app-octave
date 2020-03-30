@@ -27,6 +27,31 @@
 # those of the authors and should not be interpreted as representing official
 # policies, either expressed or implied, of Nimbix, Inc.
 
-cd /data || true
+set -e
 
-exec octave --interactive --no-gui
+# parse command line
+SCRIPT=
+
+while [[ -n "$1" ]]; do
+  case "$1" in
+  -script)
+    shift
+    SCRIPT="$1"
+    ;;
+  *)
+    echo "Invalid argument: $1" >&2
+    exit 1
+    ;;
+  esac
+  shift
+done
+
+# select script dir, strip file name off path
+SCRIPT_DIR=$(dirname "$SCRIPT")
+echo "Using Octave directory: $SCRIPT_DIR"
+cd "$SCRIPT_DIR"
+
+# run the function/script file
+echo "Running selected file and logging to $SCRIPT_DIR/octave-batch.log"
+#exec octave "$SCRIPT" | tee -a "$SCRIPT_DIR"/octave-batch.log
+exec octave "$SCRIPT"
