@@ -15,10 +15,10 @@
   ],
   "commands": {
     "Shell": {
-      "path": "/usr/local/scripts/octave-shell.sh",
+      "path": "/sbin/init",
       "interactive": true,
       "scale_max": 1,
-      "name": "Octave shell",
+      "name": "Shell",
       "description": "Launch an interactive session",
       "parameters": {
       }
@@ -35,44 +35,6 @@
           "type": "FILE",
           "filter": "*.m",
           "name": "Octave Function or Script file (*.m)"
-        }
-      }
-    },
-    "Server": {
-      "path": "/sbin/init",
-      "interactive": true,
-      "name": "Server",
-      "description": "Launch a session with all boot services, including SSH (if installed)",
-      "parameters": {}
-    },
-    "Bash": {
-      "path": "/bin/bash",
-      "interactive": true,
-      "name": "Bash",
-      "description": "Run a batch command using /bin/bash.  The output may be monitored directly in your web browser.",
-      "parameters": {
-        "-l": {
-          "name": "-l",
-          "description": "-l",
-          "type": "CONST",
-          "value": "-l",
-          "positional": true,
-          "required": true
-        },
-        "-c": {
-          "name": "-c",
-          "description": "-c",
-          "type": "CONST",
-          "value": "-c",
-          "positional": true,
-          "required": true
-        },
-        "command": {
-          "name": "Command",
-          "description": "Command to run",
-          "type": "STR",
-          "positional": true,
-          "required": true
         }
       }
     }
