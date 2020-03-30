@@ -38,10 +38,17 @@
         }
       }
     },
+    "Server": {
+      "path": "/sbin/init",
+      "interactive": true,
+      "name": "Server",
+      "description": "Launch a session with all boot services, including SSH (if installed)",
+      "parameters": {}
+    },
     "Bash": {
       "path": "/bin/bash",
-      "interactive": false,
-      "name": "Batch",
+      "interactive": true,
+      "name": "Bash",
       "description": "Run a batch command using /bin/bash.  The output may be monitored directly in your web browser.",
       "parameters": {
         "-l": {
