@@ -19,7 +19,7 @@
       "interactive": true,
       "scale_max": 1,
       "name": "Shell",
-      "description": "Launch an interactive session",
+      "description": "Launch an interactive session with the Octave interpreter",
       "parameters": {
       }
     },

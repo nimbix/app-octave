@@ -11,7 +11,7 @@ RUN yum -y install epel-release && \
 
 COPY scripts /usr/local/scripts
 
-RUN echo "exec /usr/bin/octave" >> /etc/profile.d/octave.sh
+RUN echo "exec /usr/bin/octave -W" >> /etc/profile.d/octave.sh
 
 COPY NAE/AppDef.json /etc/NAE/AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://api.jarvice.com/jarvice/validate
