@@ -52,6 +52,6 @@ echo "Using Octave directory: $SCRIPT_DIR"
 cd "$SCRIPT_DIR"
 
 # run the function/script file
-echo "Running selected file and logging to $SCRIPT_DIR/octave-batch.log"
+#echo "Running selected file and logging to $SCRIPT_DIR/octave-batch.log"
 #exec octave "$SCRIPT" | tee -a "$SCRIPT_DIR"/octave-batch.log
 exec octave "$SCRIPT"

@@ -17,6 +17,7 @@
     "Shell": {
       "path": "/usr/local/scripts/octave-shell.sh",
       "interactive": true,
+      "scale_max": 1,
       "name": "Octave shell",
       "description": "Launch an interactive session",
       "parameters": {
@@ -25,6 +26,7 @@
     "Batch": {
       "path": "/usr/local/scripts/octave-batch.sh",
       "interactive": false,
+      "scale_max": 1,
       "name": "Batch",
       "description": "Run Octave as a batch job, supplying a Function or Script File",
       "parameters": {
