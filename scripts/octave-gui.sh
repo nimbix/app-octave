@@ -27,29 +27,6 @@
 # those of the authors and should not be interpreted as representing official
 # policies, either expressed or implied, of Nimbix, Inc.
 
-set -e
+cd /data || true
 
-# parse command line
-SCRIPT=
-
-while [[ -n "$1" ]]; do
-  case "$1" in
-  -script)
-    shift
-    SCRIPT="$1"
-    ;;
-  *)
-    echo "Invalid argument: $1" >&2
-    exit 1
-    ;;
-  esac
-  shift
-done
-
-# select script dir, strip file name off path
-SCRIPT_DIR=$(dirname "$SCRIPT")
-echo "Using Octave directory: $SCRIPT_DIR"
-cd "$SCRIPT_DIR"
-
-# run the function/script file
-exec octave -W "$SCRIPT"
+exec octave --gui --norc --interactive

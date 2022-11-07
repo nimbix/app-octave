@@ -1,8 +1,9 @@
 {
-  "name": "GNU Octave",
+  "name": "GNU Octave 7.3",
   "description": "GNU Octave is a high-level language, primarily intended for numerical computations",
   "author": "Nimbix, Inc.",
   "licensed": true,
+  "appdefversion": 2,
   "classifications": [
     "Software Development/Scientific Programming Language"
   ],
@@ -14,6 +15,15 @@
     "FILE"
   ],
   "commands": {
+    "Octave-GUI": {
+      "path": "/usr/local/scripts/octave-gui.sh",
+      "interactive": true,
+      "desktop": true,
+      "scale_max": 1,
+      "name": "Octave-GUI",
+      "description": "Launch an interactive session with Octave",
+      "parameters": {}
+    },
     "Shell": {
       "path": "/sbin/init",
       "interactive": true,
