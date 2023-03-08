@@ -4,10 +4,10 @@ LABEL maintainer="Nimbix, Inc." \
 
 # Update SERIAL_NUMBER to force rebuild of all layers (don't use cached layers)
 ARG SERIAL_NUMBER
-ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20221106.1000}
+ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20230308.1000}
 
 ARG OCTAVE_VERSION
-ENV OCTAVE_VERSION 7.3.0
+ENV OCTAVE_VERSION 8.1.0
 
 # Install image-common tools and desktop
 WORKDIR /tmp
@@ -44,8 +44,6 @@ RUN apt-get -y update && \
     make -j16 && make install && make clean
 
 COPY scripts /usr/local/scripts
-
-# RUN echo "exec /usr/bin/octave -W" >> /etc/profile.d/octave.sh
 
 COPY NAE/screenshot.png /etc/NAE/screenshot.png
 COPY NAE/AppDef.json /etc/NAE/AppDef.json
