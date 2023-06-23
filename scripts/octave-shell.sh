@@ -29,4 +29,6 @@
 
 cd /data || true
 
+. $(dirname "$0")/setenv.sh
+
 exec octave --interactive --no-gui

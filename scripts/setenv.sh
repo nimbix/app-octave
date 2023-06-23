@@ -27,31 +27,11 @@
 # those of the authors and should not be interpreted as representing official
 # policies, either expressed or implied, of Nimbix, Inc.
 
-set -e
+mkdir -p /data/AppConfig/octave/octave_8_2/config/octave
+mkdir -p /data/AppConfig/octave/octave_8_2/local/octave
 
-# parse command line
-SCRIPT=
+mkdir -p "$HOME"/.config
+mkdir -p "$HOME"/.local/share
 
-while [[ -n "$1" ]]; do
-  case "$1" in
-  -script)
-    shift
-    SCRIPT="$1"
-    ;;
-  *)
-    echo "Invalid argument: $1" >&2
-    exit 1
-    ;;
-  esac
-  shift
-done
-
-. $(dirname "$0")/setenv.sh
-
-# select script dir, strip file name off path
-SCRIPT_DIR=$(dirname "$SCRIPT")
-echo "Using Octave directory: $SCRIPT_DIR"
-cd "$SCRIPT_DIR"
-
-# run the function/script file
-exec octave -W "$SCRIPT"
+ln -sf /data/AppConfig/octave/octave_8_2/config/octave "$HOME"/.config/
+ln -sf /data/AppConfig/octave/octave_8_2/local/octave "$HOME"/.local/share/
