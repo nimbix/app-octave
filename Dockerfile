@@ -4,15 +4,15 @@ LABEL maintainer="Nimbix, Inc." \
 
 # Update SERIAL_NUMBER to force rebuild of all layers (don't use cached layers)
 ARG SERIAL_NUMBER
-ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20230308.1000}
+ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20230620.1000}
 
 ARG OCTAVE_VERSION
-ENV OCTAVE_VERSION 8.1.0
+ENV OCTAVE_VERSION 8.2.0
 
 # Install image-common tools and desktop
 WORKDIR /tmp
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get -y update && \
+RUN apt-get -y update && apt-get -y upgrade && \
     apt-get install -y curl ca-certificates && \
     curl -H 'Cache-Control: no-cache' \
         https://raw.githubusercontent.com/nimbix/jarvice-desktop/master/install-nimbix.sh \
@@ -50,3 +50,17 @@ COPY NAE/AppDef.json /etc/NAE/AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://cloud.nimbix.net/api/jarvice/validate
 
 RUN mkdir -p /etc/NAE && touch /etc/NAE/{screenshot.png,screenshot.txt,license.txt,AppDef.json}
+
+# # # For testing locally
+# # Add nimbix user
+# RUN useradd --shell /bin/bash nimbix
+# RUN mkdir -p /home/nimbix/
+# RUN mkdir -p /data
+
+# # Have all files be owned by nimbix user
+# RUN chown -R nimbix:nimbix /home/nimbix
+# RUN chown -R nimbix:nimbix /data
+
+# # Add user to sudo group and make them passwordless
+# RUN usermod -aG sudo nimbix
+# RUN echo "nimbix    ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers

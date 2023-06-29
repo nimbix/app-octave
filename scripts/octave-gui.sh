@@ -27,6 +27,10 @@
 # those of the authors and should not be interpreted as representing official
 # policies, either expressed or implied, of Nimbix, Inc.
 
+set -x
+
 cd /data || true
+
+. $(dirname "$0")/setenv.sh
 
 exec octave --gui --interactive
