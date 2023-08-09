@@ -27,11 +27,11 @@
 # those of the authors and should not be interpreted as representing official
 # policies, either expressed or implied, of Nimbix, Inc.
 
-mkdir -p /data/AppConfig/octave/octave_8_2/config/octave
-mkdir -p /data/AppConfig/octave/octave_8_2/local/octave
+mkdir -p /data/AppConfig/octave/$OCTAVE_VERSION/config/octave
+mkdir -p /data/AppConfig/octave/$OCTAVE_VERSION/local/octave
 
 mkdir -p "$HOME"/.config
 mkdir -p "$HOME"/.local/share
 
-ln -sf /data/AppConfig/octave/octave_8_2/config/octave "$HOME"/.config/
-ln -sf /data/AppConfig/octave/octave_8_2/local/octave "$HOME"/.local/share/
+ln -sf /data/AppConfig/octave/$OCTAVE_VERSION/config/octave "$HOME"/.config/
+ln -sf /data/AppConfig/octave/$OCTAVE_VERSION/local/octave "$HOME"/.local/share/
