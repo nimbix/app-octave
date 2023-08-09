@@ -1,5 +1,5 @@
 {
-  "name": "GNU Octave 8.3",
+  "name": "GNU Octave OCTAVE_VERSION",
   "description": "GNU Octave is a high-level language, primarily intended for numerical computations",
   "author": "GNU Octave",
   "licensed": true,
