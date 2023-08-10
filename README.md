@@ -17,3 +17,8 @@ https://octave.org/doc/interpreter/
 * Added ability to remember command histories between sessions
 * Added ability to have users download their own packages and have
   them be preserved across sessions
+
+## 2023-08-10
+
+* Update to latest version (8.3.0)
+* Makefile now handles all version control via variables
