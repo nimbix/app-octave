@@ -22,3 +22,7 @@ https://octave.org/doc/interpreter/
 
 * Update to latest version (8.3.0)
 * Makefile now handles all version control via variables
+
+## 2023-11-09
+
+* Update to latest version (8.4.0)

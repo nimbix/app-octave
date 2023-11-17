@@ -4,9 +4,9 @@ LABEL maintainer="Nimbix, Inc." \
 
 # Update SERIAL_NUMBER to force rebuild of all layers (don't use cached layers)
 ARG SERIAL_NUMBER
-ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20230620.1000}
+ENV SERIAL_NUMBER ${SERIAL_NUMBER:-20231109.1000}
 
-ARG OCTAVE_VERSION=8.3.0
+ARG OCTAVE_VERSION=8.4.0
 ENV OCTAVE_VERSION=$OCTAVE_VERSION
 
 # Install image-common tools and desktop
