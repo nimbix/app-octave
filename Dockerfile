@@ -36,6 +36,7 @@ RUN apt-get -y update && \
         libhdf5-dev \
         liblapack-dev \
         libpcre3-dev \
+        libpciaccess-dev \
         libqhull-dev \
         libqrupdate-dev \
         libqscintilla2-qt5-dev \
