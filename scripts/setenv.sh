@@ -27,6 +27,12 @@
 # those of the authors and should not be interpreted as representing official
 # policies, either expressed or implied, of Nimbix, Inc.
 
+# Need to add folders to the LD_LIBRARY_PATH
+EXTRA_LD_PATH=/usr/lib:/usr/lib64:/usr/lib64/atlas
+export LD_LIBRARY_PATH=$EXTRA_LD_PATH:$LD_LIBRARY_PATH
+
+echo "INFO: Starting $(octave --version | head -n1)"
+
 mkdir -p /data/AppConfig/octave/$OCTAVE_VERSION/config/octave
 mkdir -p /data/AppConfig/octave/$OCTAVE_VERSION/local/octave
 
