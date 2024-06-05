@@ -26,3 +26,9 @@ https://octave.org/doc/interpreter/
 ## 2023-11-09
 
 * Update to latest version (8.4.0)
+
+## 2024-06-05
+
+* Update to latest version (9.2.0)
+* Moved OS to Rocky Linux 8
+* Reduced thumbnail size
