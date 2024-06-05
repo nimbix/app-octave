@@ -22,6 +22,7 @@ RUN dnf install -y \
         gnutls-devel \
         icoutils \
         librsvg2-tools \
+        xdg-utils \
         yum-utils && \
     yum-builddep -y octave
 
