@@ -28,16 +28,22 @@
 # policies, either expressed or implied, of Nimbix, Inc.
 
 # Need to add folders to the LD_LIBRARY_PATH
-EXTRA_LD_PATH=/usr/lib:/usr/lib64:/usr/lib64/atlas
-export LD_LIBRARY_PATH=$EXTRA_LD_PATH:$LD_LIBRARY_PATH
+EXTRA_LD_PATH=/usr/lib:/usr/lib64:/usr/lib64/atlas:/usr/lib64/llvm17/lib
+export LD_LIBRARY_PATH="$EXTRA_LD_PATH:$LD_LIBRARY_PATH"
 
-echo "INFO: Starting $(octave --version | head -n1)"
-
-mkdir -p /data/AppConfig/octave/$OCTAVE_VERSION/config/octave
-mkdir -p /data/AppConfig/octave/$OCTAVE_VERSION/local/octave
+mkdir -p "/data/AppConfig/octave/$OCTAVE_VERSION/config/octave"
+mkdir -p "/data/AppConfig/octave/$OCTAVE_VERSION/local/octave"
 
 mkdir -p "$HOME"/.config
 mkdir -p "$HOME"/.local/share
 
-ln -sf /data/AppConfig/octave/$OCTAVE_VERSION/config/octave "$HOME"/.config/
-ln -sf /data/AppConfig/octave/$OCTAVE_VERSION/local/octave "$HOME"/.local/share/
+ln -sf "/data/AppConfig/octave/$OCTAVE_VERSION/config/octave" "$HOME"/.config/
+ln -sf "/data/AppConfig/octave/$OCTAVE_VERSION/local/octave" "$HOME"/.local/share/
+
+# Enable gcc 14
+# shellcheck disable=SC1091
+. /opt/rh/gcc-toolset-14/enable
+
+# Add octave to path
+export PATH="/opt/octave/bin:$PATH"
+echo "INFO: Starting $(octave --version 2>/dev/null | head -n1)"

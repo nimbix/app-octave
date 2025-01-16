@@ -8,8 +8,8 @@
     "Software Development/Scientific Programming Language"
   ],
   "machines": [
-    "n[3-9]",
-    "n[1-9][0-9]"
+    "n[1-9]-*",
+    "n[1-9][0-9]-*"
   ],
   "vault-types": [
     "FILE"
@@ -25,7 +25,8 @@
       "parameters": {}
     },
     "Shell": {
-      "path": "/sbin/init",
+      "path": "/usr/local/scripts/octave-shell.sh",
+      "webshell": true,
       "interactive": true,
       "scale_max": 1,
       "name": "Shell",
