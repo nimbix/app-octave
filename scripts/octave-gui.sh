@@ -31,11 +31,11 @@ set -e
 
 cd /data || true
 
-. $(dirname "$0")/setenv.sh
+. "$(dirname "$0")/setenv.sh"
 
-# Temperary check for the PS1 variable for terminal
+# Temporary check for the PS1 variable for terminal
 if [[ -z "${PS1}" ]]; then
-  echo "export PS1=\"[\u@\h: \w]\$ \"" >> $HOME/.bashrc
+  echo "export PS1=\"[\u@\h: \w]\$ \"" >> "$HOME/.bashrc"
 fi
 
 exec octave --gui --interactive
