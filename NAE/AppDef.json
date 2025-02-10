@@ -24,16 +24,6 @@
       "description": "Launch an interactive session with Octave",
       "parameters": {}
     },
-    "Shell": {
-      "path": "/usr/local/scripts/octave-shell.sh",
-      "webshell": true,
-      "interactive": true,
-      "scale_max": 1,
-      "name": "Shell",
-      "description": "Launch an interactive session with the Octave interpreter",
-      "parameters": {
-      }
-    },
     "Batch": {
       "path": "/usr/local/scripts/octave-batch.sh",
       "interactive": false,

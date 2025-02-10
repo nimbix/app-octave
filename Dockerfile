@@ -46,13 +46,17 @@ RUN dnf install -y epel-release && dnf config-manager --set-enabled powertools &
 RUN dnf install -y \
         btop htop \
         gcc-toolset-14 \
+        ncurses \
+        ncurses-base \
+        ncurses-term \
         $(dnf deplist octave | grep provider | grep -v curl | sort -u | awk '{print $2}') \
     && dnf clean all
 
 COPY --from=BUILDER /opt/octave /opt/octave
 
 RUN mkdir -p /usr/lib/dri && \
-    ln -s /usr/lib64/swrast*.so /usr/lib/dri/.
+    ln -s /usr/lib64/swrast*.so /usr/lib/dri/. && \
+    ln -s /usr/share/terminfo /lib/terminfo
 
 COPY scripts /usr/local/scripts
 
@@ -61,4 +65,4 @@ COPY NAE/license.txt /etc/NAE/license.txt
 COPY NAE/AppDef-versioned.json /etc/NAE/AppDef.json
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://cloud.nimbix.net/api/jarvice/validate
 
-RUN mkdir -p /etc/NAE && touch /etc/NAE/{screenshot.png,screenshot.txt,license.txt,AppDef.json}
+RUN mkdir -p /etc/NAE && touch /etc/NAE/{screenshot.png,screenshot.txt,license.txt,AppDef.json,swlicense.txt}
