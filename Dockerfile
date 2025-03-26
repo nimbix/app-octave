@@ -15,10 +15,12 @@ RUN dnf install epel-release -y && \
     dnf install -y \
         btop htop \
         gcc-toolset-14 \
+        git \
         gnutls-devel \
         icoutils \
         librsvg2-tools \
         openblas \
+        sundials \
         xdg-utils && \
     dnf builddep -y octave && dnf clean all
 
@@ -49,6 +51,7 @@ RUN dnf install -y \
         ncurses \
         ncurses-base \
         ncurses-term \
+        sundials \
         $(dnf deplist octave | grep provider | grep -v curl | sort -u | awk '{print $2}') \
     && dnf clean all
 
