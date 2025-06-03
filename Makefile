@@ -1,4 +1,4 @@
-OCTAVE_VERSION := 10.1.0
+OCTAVE_VERSION := 10.2.0
 CURRENT_DATE := $(shell date +"%Y-%m-%d")
 IMAGE := us-docker.pkg.dev/jarvice/images/app-octave:$(OCTAVE_VERSION)-$(CURRENT_DATE)
 
