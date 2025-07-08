@@ -4,9 +4,9 @@
   "author": "GNU Octave",
   "licensed": true,
   "appdefversion": 2,
-  "classifications": [
-    "Software Development/Scientific Programming Language"
-  ],
+    "classifications": [
+        "AI/Data Science & Analytics"
+    ],
   "machines": [
     "n[1-9]-*",
     "n[1-9][0-9]-*",
