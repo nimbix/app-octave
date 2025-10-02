@@ -24,7 +24,7 @@ CXXFLAGS="-mtune=generic -march=x86-64-v3 -O2" \
 FFLAGS="-mtune=generic -march=x86-64-v3 -O2" \
 LDFLAGS="-flto=auto" \
 ../configure --prefix=/opt/octave --disable-rapidjson
-make -j"$(nproc --ignore=2)"
+make -j8
 make install
 
 cd /tmp || exit 1

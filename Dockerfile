@@ -1,4 +1,4 @@
-FROM rockylinux/rockylinux:8 as BUILDER
+FROM rockylinux/rockylinux:8 AS builder
 LABEL maintainer="Nimbix, Inc." \
       license="BSD"
 
@@ -55,7 +55,7 @@ RUN dnf install -y \
         $(dnf deplist octave | grep provider | grep -v curl | sort -u | awk '{print $2}') \
     && dnf clean all
 
-COPY --from=BUILDER /opt/octave /opt/octave
+COPY --from=builder /opt/octave /opt/octave
 
 RUN mkdir -p /usr/lib/dri && \
     ln -s /usr/lib64/swrast*.so /usr/lib/dri/. && \
@@ -65,7 +65,10 @@ COPY scripts /usr/local/scripts
 
 COPY NAE/screenshot.png /etc/NAE/screenshot.png
 COPY NAE/license.txt /etc/NAE/license.txt
-COPY NAE/AppDef-versioned.json /etc/NAE/AppDef.json
+COPY NAE/AppDef.json /etc/NAE/AppDef.json
+
+RUN sed -i "s,OCTAVE_VERSION,${OCTAVE_VERSION}," /etc/NAE/AppDef.json
+RUN curl -L https://github.com/gnu-octave/octave/raw/refs/tags/release-$(echo ${OCTAVE_VERSION} | tr '.' '-')/COPYING >> /etc/NAE/license.txt
 RUN curl --fail -X POST -d @/etc/NAE/AppDef.json https://cloud.nimbix.net/api/jarvice/validate
 
 RUN mkdir -p /etc/NAE && touch /etc/NAE/{screenshot.png,screenshot.txt,license.txt,AppDef.json,swlicense.txt}
