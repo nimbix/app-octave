@@ -26,7 +26,7 @@ RUN dnf install epel-release -y && \
 
 WORKDIR /tmp
 COPY buildscripts /tmp/buildscripts
-RUN /tmp/buildscripts/install-octave.sh ${OCTAVE_VERSION}
+RUN /tmp/buildscripts/install-octave.sh
 
 FROM rockylinux/rockylinux:8
 

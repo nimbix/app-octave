@@ -3,16 +3,17 @@
 set -e
 set -x
 
-OCTAVE_VERSION="$(echo "$1" | tr '.' '-')"
+# OCTAVE_VERSION="$(echo "$1" | tr '.' '-')"
 
 WORK_DIR="/tmp/install-$$"
 mkdir -p "$WORK_DIR"
 cd "$WORK_DIR" || exit 1
 
-curl -L "https://github.com/gnu-octave/octave/archive/refs/tags/release-$OCTAVE_VERSION.tar.gz" | tar xz --strip-components=1 --no-same-owner
+curl -L "https://ftpmirror.gnu.org/octave/octave-$OCTAVE_VERSION.tar.gz" | tar xz --strip-components=1 --no-same-owner
+# curl -L "https://github.com/gnu-octave/octave/archive/refs/tags/release-$OCTAVE_VERSION.tar.gz" | tar xz --strip-components=1 --no-same-owner
 mkdir -p BUILD
 
-./bootstrap
+# ./bootstrap
 
 cd BUILD || exit 1
 
