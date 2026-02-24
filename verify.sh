@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Get latest image
-IMAGE=$(docker images | grep octave | grep -v localhost | head -n1 | awk '{print $1 ":" $2}')
+IMAGE=$(docker images --format table | grep octave | grep -v localhost | head -n1 | awk '{print $1 ":" $2}')
 
 if [[ -z $IMAGE ]]; then
     echo "ERROR: Octave image not found..."
@@ -9,8 +9,8 @@ if [[ -z $IMAGE ]]; then
 fi
 
 echo "INFO: Found Image -> $IMAGE"
-
-docker run -it --rm --shm-size=16g -p 5902:5902 --entrypoint=bash "$IMAGE" -ec "
+PORT=${1:-5902}
+docker run -it --rm --shm-size=16g -p $PORT:5902 --entrypoint=bash "$IMAGE" -ec "
     useradd --shell /bin/bash nimbix
     usermod -aG root nimbix
     mkdir -p /home/nimbix/
